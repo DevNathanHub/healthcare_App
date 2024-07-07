@@ -243,7 +243,11 @@ const RegisterForm = ({ user }: { user: User }) => {
                     alt="doctor"
                     className="rounded-full border border-dark-500"
                   />
-                  <p>{doctor.name}</p>
+                    <div className="flex flex-col items-start justify-center ">
+                       <p>{doctor.name}</p>
+                       <p className="text-xs text-gray-300">{doctor.role}</p>
+
+                    </div>
                 </div>
               </SelectItem>
             ))}

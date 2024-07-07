@@ -1,48 +1,85 @@
-import Image from "next/image";
-import Link from "next/link";
+import SubmitButton from '@/components/SubmitButton'
+import { Button } from '@/components/ui/button'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-import { PatientForm } from "@/components/forms/PatientForm";
-import { PasskeyModal } from "@/components/PasskeyModal";
-
-const Home = ({ searchParams }: SearchParamProps) => {
-  const isAdmin = searchParams?.admin === "true";
-
+const HeroSection = () => {
   return (
-    <div className="flex h-screen max-h-screen">
-      {isAdmin && <PasskeyModal />}
-
-      <section className="remove-scrollbar container my-auto">
-        <div className="sub-container max-w-[496px]">
-          <Image
-            src="/assets/icons/logo-full.svg"
-            height={1000}
-            width={1000}
-            alt="patient"
-            className="mb-12 h-10 w-fit"
-          />
-
-          <PatientForm />
-
-          <div className="text-14-regular mt-20 flex justify-between">
-            <p className="justify-items-end text-dark-600 xl:text-left">
-              © 2024 CarePluse
-            </p>
-            <Link href="/?admin=true" className="text-green-500">
-              Admin
-            </Link>
-          </div>
-        </div>
-      </section>
+    <section className=" bg-dark-300 text-white py-20 flex">
+      <div className="container mx-auto px-6 flex flex-col space-y-5 text-start justify-items-center remove-scrollbar h-[100vh]">
+      <h1 className="text-7xl  font-bold mb-8 bg-gradient-to-r from-blue-500 to-white bg-clip-text text-transparent">
+        Welcome to CarePulse
+      </h1>
+        <p className="text-md mb-[100px] ">Your health, our priority. Book appointments with ease.</p>
+        <Link href="/patient-form" className='mt-8'>
+          <span className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Make an Appointment</span>
+        </Link>
+      </div>
+      <div className="container mx-auto px-6 flex flex-col text-start justify-items-center remove-scrollbar h-[100vh]">
+      <div className="w-[150px] h-[150px] ml-[30px] mb-[-50px] bg-gray-400 rounded-full bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  border-gray-100 flex items-center justify-center text-4xl">
+        Quick
+      </div>
 
       <Image
-        src="/assets/images/onboarding-img.png"
-        height={1000}
-        width={1000}
-        alt="patient"
-        className="side-img max-w-[50%]"
+          src="https://media.istockphoto.com/id/1682074275/photo/doctor-woman-and-tablet-for-hospital-healthcare-advice-and-support-for-results-exam-and-test.jpg?s=1024x1024&w=is&k=20&c=r88v4byMAY67lgYS680CerJgj-zGZVu9yuNfiekQYfc="
+          alt="hero"
+          width={400}
+          height={900}
+          className="mx-auto mb-8"
       />
-    </div>
-  );
-};
+      <div className="w-[150px] h-[150px] ml-[70%] mt-[-90px] bg-gray-400 rounded-full bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  border-gray-100 flex flex-col-reverse items-center justify-center text-4xl">
+        Quick
+      </div>
+      </div>
+    </section>
+  )
+}
 
-export default Home;
+const ServicesSection = () => {
+  const services = [
+    { title: "General Consultation", description: "Get professional medical advice from our experts." },
+    { title: "Specialist Appointment", description: "Book an appointment with a specialist." },
+    { title: "Emergency Services", description: "24/7 emergency care available." },
+  ];
+
+  return (
+    <section className="bg-gray-800 text-white py-12">
+      <div className="container mx-auto px-6">
+        <h2 className="text-3xl font-bold mb-8">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <div key={index} className="bg-gray-700 p-6 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
+              <p className="text-lg">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const AdminLink = () => {
+  return (
+    <div className="bg-gray-800 text-white py-4">
+      <div className="container mx-auto px-6 text-right">
+        <Link href="/admin">
+          <span className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Admin</span>
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+const Page = () => {
+  return (
+    <div className="bg-gray-900 min-h-screen overflow-hidden">
+      <HeroSection />
+      <ServicesSection />
+      <AdminLink />
+    </div>
+  )
+}
+
+export default Page

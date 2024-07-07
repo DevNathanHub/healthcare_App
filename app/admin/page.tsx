@@ -10,8 +10,8 @@ const AdminPage = async () => {
   const appointments = await getRecentAppointmentList();
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col space-y-14">
-      <header className="admin-header">
+    <div className="mx-auto flex max-w-7xl flex-col space-y-14 ">
+      <header className="admin-header h-full w-full bg-white-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  ">
         <Link href="/" className="cursor-pointer">
           <Image
             src="/assets/icons/logo-full.svg"
