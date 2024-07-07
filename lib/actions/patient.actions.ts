@@ -16,6 +16,7 @@ import { parseStringify } from "../utils";
 
 // CREATE APPWRITE USER
 export const createUser = async (user: CreateUserParams) => {
+  console.log("touched");
   try {
     // Create new user -> https://appwrite.io/docs/references/1.5.x/server-nodejs/users#create
     const newuser = await users.create(
@@ -25,6 +26,8 @@ export const createUser = async (user: CreateUserParams) => {
       undefined,
       user.name
     );
+    console.log("new user from create function >>>>>>>>>>", newuser);
+
 
     return parseStringify(newuser);
   } catch (error: any) {
@@ -79,8 +82,7 @@ export const registerPatient = async ({
       PATIENT_COLLECTION_ID!,
       ID.unique(),
       {
-        identificationDocumentId: file?.$id ? file.$id : null,
-        identificationDocumentUrl: file?.$id
+        identificationDocumentId: file?.$id ? file.$id : null
           ? `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file.$id}/view??project=${PROJECT_ID}`
           : null,
         ...patient,

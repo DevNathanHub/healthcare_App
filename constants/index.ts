@@ -44,38 +44,55 @@ export const Doctors = [
   {
     image: "/assets/images/dr-green.png",
     name: "John Green",
+    role: "Nurse",
   },
   {
     image: "/assets/images/dr-cameron.png",
     name: "Leila Cameron",
+    role: "Dentist",
+
   },
   {
     image: "/assets/images/dr-livingston.png",
     name: "David Livingston",
+    role: "Optician",
+
   },
   {
     image: "/assets/images/dr-peter.png",
     name: "Evan Peter",
+    role: "Orthopedic",
+
   },
   {
     image: "/assets/images/dr-powell.png",
     name: "Jane Powell",
+    role: "Endocrinologist ",
+
   },
   {
     image: "/assets/images/dr-remirez.png",
     name: "Alex Ramirez",
+    role: "Doctor",
+
   },
   {
     image: "/assets/images/dr-lee.png",
     name: "Jasmine Lee",
+    role: "Doctor",
+
   },
   {
     image: "/assets/images/dr-cruz.png",
     name: "Alyana Cruz",
+    role: "Doctor",
+
   },
   {
     image: "/assets/images/dr-sharma.png",
     name: "Hardik Sharma",
+    role: "Surgeon",
+
   },
 ];
 

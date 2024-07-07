@@ -79,6 +79,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         pastMedicalHistory: values.pastMedicalHistory,
         identificationType: values.identificationType,
         identificationNumber: values.identificationNumber,
+        // identificationDocumentUrl: values.identificationDocumentUrl,
         identificationDocument: values.identificationDocument
           ? formData
           : undefined,
@@ -332,6 +333,15 @@ const RegisterForm = ({ user }: { user: User }) => {
             label="Identification Number"
             placeholder="123456789"
           />
+          {/* <CustomFormField
+              fieldType={FormFieldType.INPUT}
+              control={form.control}
+              name="identificationDocumentUrl"
+              label="Identification Number Url"
+              placeholder="https://example.com"
+              iconSrc="/assets/icons/email.svg"
+              iconAlt="email"
+            /> */}
 
           <CustomFormField
             fieldType={FormFieldType.SKELETON}
