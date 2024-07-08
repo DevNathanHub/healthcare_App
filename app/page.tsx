@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 const HeroSection = () => {
+ 
   return (
     <section className=" bg-dark-300 text-white py-20 flex">
       <div className="container mx-auto px-6 flex flex-col space-y-5 text-start justify-items-center remove-scrollbar h-[100vh]">
@@ -26,7 +27,7 @@ const HeroSection = () => {
           height={900}
           className="mx-auto mb-8"
       />
-      <div className="w-[150px] h-[150px] ml-[70%] mt-[-90px] bg-gray-400 rounded-full bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  border-gray-100 flex flex-col-reverse items-center justify-center text-4xl">
+      <div className="w-[150px] h-[150px] ml-[70%] mt-[-90px] bg-gray-400 rounded-full bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10  border-gray-100 flex flex-col-reverse items-center justify-center text-2xl">
         Quick
       </div>
       </div>
@@ -42,13 +43,14 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="bg-gray-800 text-white py-12">
+    <section className="bg-dark-300 text-white py-12">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-8">Our Services</h2>
+      <h1 className="text-3xl  font-bold mb-8 bg-gradient-to-r from-blue-500 to-white bg-clip-text text-transparent">
+        Our Services
+      </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div key={index} className="bg-gray-700 p-6 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
+          <div key={index} className="bg-gray-700 p-6 rounded-lg shadow-lg glowing-gradient">              <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
               <p className="text-lg">{service.description}</p>
             </div>
           ))}
@@ -58,24 +60,13 @@ const ServicesSection = () => {
   )
 }
 
-const AdminLink = () => {
-  return (
-    <div className="bg-gray-800 text-white py-4">
-      <div className="container mx-auto px-6 text-right">
-        <Link href="/admin">
-          <span className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Admin</span>
-        </Link>
-      </div>
-    </div>
-  )
-}
+
 
 const Page = () => {
   return (
-    <div className="bg-gray-900 min-h-screen overflow-hidden">
+    <div className="bg-dark-300 min-h-screen overflow-hidden">
       <HeroSection />
       <ServicesSection />
-      <AdminLink />
     </div>
   )
 }
