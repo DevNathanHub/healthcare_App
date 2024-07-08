@@ -67,28 +67,25 @@ export const registerPatient = async ({
     let file;
     if (identificationDocument) {
       const inputFile =
-        identificationDocument &&
         InputFile.fromBlob(
-          identificationDocument?.get("blobFile") as Blob,
-          identificationDocument?.get("fileName") as string
+          identificationDocument.get("blobFile") as Blob,
+          identificationDocument.get("fileName") as string
         );
-
+    
       file = await storage.createFile(BUCKET_ID!, ID.unique(), inputFile);
     }
-
+    
     // Create new patient document -> https://appwrite.io/docs/references/cloud/server-nodejs/databases#createDocument
     const newPatient = await databases.createDocument(
       DATABASE_ID!,
       PATIENT_COLLECTION_ID!,
       ID.unique(),
       {
-        identificationDocumentId: file?.$id ? file.$id : null
-          ? `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file.$id}/view??project=${PROJECT_ID}`
-          : null,
+        identificationDocumentId: file ? `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file.$id}/view?project=${PROJECT_ID}` : null,
         ...patient,
       }
     );
-
+    
     return parseStringify(newPatient);
   } catch (error) {
     console.error("An error occurred while creating a new patient:", error);

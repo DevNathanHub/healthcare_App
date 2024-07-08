@@ -1,8 +1,6 @@
-import SubmitButton from '@/components/SubmitButton'
-import { Button } from '@/components/ui/button'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 const HeroSection = () => {
   return (
